@@ -2,6 +2,8 @@ package main;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 
 import javax.swing.JPanel;
 
@@ -28,7 +30,7 @@ public class GamePanel extends JPanel implements Runnable{
 
     }
 
-    public void startGameThread(){
+    public void startGameThread() {
 
         gameThread = new Thread(this);
         gameThread.start();
@@ -36,7 +38,35 @@ public class GamePanel extends JPanel implements Runnable{
 
     @Override
     public void run() {
-        //throw new UnsupportedOperationException("Unimplemented method 'run'");
+
+        while(gameThread != null) { // while game thread exists it repeats process
+
+           // System.out.println("This Game is Running"); // Thread Test
+
+           // 1 UPDATE: update info like Character Positions
+
+           update();
+
+           // 2 DRAW: Draw screen with information updates
+
+           repaint(); // Built in with JPanel
+
+        }
+    }
+    public void update() {
+
+    }
+    public void paintComponenet(Graphics g) { 
+        
+        super.paintComponent(g);
+
+        Graphics2D g2 = (Graphics2D)g;
+
+        g2.setColor(Color.white);
+
+        g2.fillRect(100, 100, tileSize, tileSize);
+
+        g2.dispose();
 
     }
 }

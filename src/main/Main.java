@@ -11,12 +11,14 @@ public class Main {
         window.setResizable(false); // non-resizeable
         window.setTitle("2D Adventure"); // Title Screen 
 
-        GamePanel gamepanel = new GamePanel();
-        window.add(gamepanel);
+        GamePanel gamePanel = new GamePanel();
+        window.add(gamePanel);
         window.pack();
 
         window.setLocationRelativeTo(null); // Start Screen in Center
         window.setVisible(true);
+
+        gamePanel.startGameThread();
     }
     
 }
