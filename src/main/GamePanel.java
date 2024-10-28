@@ -5,7 +5,7 @@ import java.awt.Dimension;
 
 import javax.swing.JPanel;
 
-public class GamePanel extends JPanel{
+public class GamePanel extends JPanel implements Runnable{
 
     // SCREEN SETTINGS
 
@@ -18,11 +18,25 @@ public class GamePanel extends JPanel{
     final int screenWidth = tileSize * maxScreenCol; // 768 pixels width
     final int screenHeight = tileSize * maxScreenRow; // 576 pixels height
 
+    Thread gameThread; // Once Thread Starts it keeps program running until stopped.
+
     public GamePanel() {
 
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
         this.setBackground(Color.black);
         this.setDoubleBuffered(true); // Can improve rendering performance
+
+    }
+
+    public void startGameThread(){
+
+        gameThread = new Thread(this);
+        gameThread.start();
+    }
+
+    @Override
+    public void run() {
+        //throw new UnsupportedOperationException("Unimplemented method 'run'");
 
     }
 }
