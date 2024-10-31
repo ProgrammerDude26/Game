@@ -23,7 +23,7 @@ public class TileManager {
         mapTileNum = new int[gp.maxScreenCol][gp.maxScreenRow];
 
         getTileImage();
-        loadMap("/ress/maps/map01.txt");
+        loadMap("/res/maps/map01.txt");
     }
 
     public void getTileImage() {
@@ -44,7 +44,7 @@ public class TileManager {
             e.printStackTrace();
         }
     }
-    
+
     public void loadMap(String filePath) {
         try {
             InputStream is = getClass().getResourceAsStream(filePath);
