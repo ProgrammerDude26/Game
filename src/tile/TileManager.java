@@ -53,7 +53,7 @@ public class TileManager {
             int col = 0;
             int row = 0;
 
-            while(col < gp.maxScreenCol && row < gp.maxScreenRow); {
+            while(col < gp.maxScreenCol && row < gp.maxScreenRow) {
 
                 String line = br.readLine();
 
