@@ -18,6 +18,7 @@ public class Player extends Entity{
 
     public final int screenX;
     public final int screenY;
+    int hasKey = 0; // How Many Keys Player Currently Has
 
     public Player(GamePanel gp, KeyHandler keyH) {
         this.gp = gp;
@@ -29,6 +30,8 @@ public class Player extends Entity{
         solidArea = new Rectangle();
         solidArea.x = 12;  // PLAYER COLLISION AREA SETTINGS
         solidArea.y = 15;
+        solidAreaDefaultX = solidArea.x;
+        solidAreaDefaultY = solidArea.y;
         solidArea.width = 12;
         solidArea.height = 24;
 
@@ -81,6 +84,10 @@ public class Player extends Entity{
         collisionOn = false;
         gp.cChecker.checkTile(this);
 
+        // CHECK OBJECT COLLISION
+        int objIndex = gp.cChecker.checkObject(this, true);
+        pickUpObject(objIndex);
+
         // IF COLLISION IS FALSE, PLAYER CAN MOVE
         if(collisionOn == false) {
 
@@ -113,6 +120,32 @@ public class Player extends Entity{
         }
         // END UPDATE LOOP
     }
+
+    public void pickUpObject(int i) {
+
+        if(i != 999) {
+
+            String objectName = gp.obj[i].name;
+
+            switch(objectName) {
+                case "Key":
+                    hasKey++;
+                    gp.obj[i] = null;
+                    System.out.println("Key: "+hasKey);
+                        break; 
+                case "Door":
+                    if(hasKey > 0) {
+                        gp.obj[i] = null;    
+                        hasKey--;
+                    }
+                    System.out.println("Key: "+hasKey);
+                        break;
+            }
+
+        }
+
+    }
+
     public void draw(Graphics2D g2) {
 
         BufferedImage image = null;
