@@ -33,16 +33,16 @@ public class Player extends Entity{
         solidAreaDefaultX = solidArea.x;
         solidAreaDefaultY = solidArea.y;
         solidArea.width = 12;
-        solidArea.height = 24;
+        solidArea.height = 30;
 
         setDefaultValues();
         getPlayerImage();
     }
     public void setDefaultValues() {
 
-        worldX = gp.tileSize * 30;
-        worldY = gp.tileSize * 20;
-        speed = 4;
+        worldX = gp.tileSize * 24;
+        worldY = gp.tileSize * 23;
+        speed = 3;
         direction = "down";
     }
     public void getPlayerImage() {
@@ -64,7 +64,6 @@ public class Player extends Entity{
     public void update() {
 
         if(keyH.upPressed == true || keyH.downPressed == true || keyH.leftPressed == true || keyH.rightPressed == true) { 
-        // UNCOMMENT to Stop Animation when not presssing key
 
         // UPDATE LOOP
         if(keyH.upPressed == true) {
