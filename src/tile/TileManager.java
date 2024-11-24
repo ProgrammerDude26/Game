@@ -19,7 +19,7 @@ public class TileManager {
 
         this.gp = gp;
 
-        tile = new Tile[10];
+        tile = new Tile[20];
         mapTileNum = new int[gp.maxWorldCol][gp.maxWorldRow];
 
         getTileImage();
@@ -34,15 +34,14 @@ public class TileManager {
             tile[0].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/earthHorizontal.png"));
 
             tile[1] = new Tile();
-            tile[1].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/wall.png"));
-            tile[1].collision = true;
+            tile[1].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/earthVertical.png"));
 
             tile[2] = new Tile();
-            tile[2].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/lava.png"));
+            tile[2].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/tree.png"));
             tile[2].collision = true;
 
             tile[3] = new Tile();
-            tile[3].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/block.png"));
+            tile[3].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/wall.png"));
             tile[3].collision = true;
 
             tile[4] = new Tile();
@@ -52,7 +51,22 @@ public class TileManager {
             tile[5].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/grass.png"));
 
             tile[6] = new Tile();
-            tile[6].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/earthVertical.png"));
+            tile[6].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/block.png"));
+
+            tile[7] = new Tile();
+            tile[7].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/earthCross.png"));
+
+            tile[8] = new Tile();
+            tile[8].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/earthUpT.png"));
+
+            tile[9] = new Tile();
+            tile[9].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/earthDownT.png"));
+
+            tile[10] = new Tile();
+            tile[10].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/earthLeftT.png"));
+
+            tile[11] = new Tile();
+            tile[11].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/earthRightT.png"));
 
 
             
