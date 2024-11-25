@@ -1,5 +1,6 @@
 package entity;
 
+import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
@@ -27,13 +28,14 @@ public class Player extends Entity{
         screenX = gp.screenWidth / 2 - (gp.tileSize/2);
         screenY = gp.screenHeight / 2 - (gp.tileSize/2);
 
+        // PLAYER COLLISION AREA SETTINGS
         solidArea = new Rectangle();
-        solidArea.x = 24;  // PLAYER COLLISION AREA SETTINGS
-        solidArea.y = 30;
+        solidArea.x = 26;
+        solidArea.y = 36;
         solidAreaDefaultX = solidArea.x;
         solidAreaDefaultY = solidArea.y;
         solidArea.width = 12;
-        solidArea.height = 30;
+        solidArea.height = 24;
 
         setDefaultValues();
         getPlayerImage();
@@ -202,5 +204,9 @@ public class Player extends Entity{
 
         g2.drawImage(image, screenX, screenY, gp.tileSize, gp.tileSize, null);
 
+        // PLAYER COLLISION BOX CHECKER - Uncomment to Enable
+
+        //g2.setColor(Color.red);
+        //g2.drawRect(screenX + solidArea.x, screenY + solidArea.y, solidArea.width, solidArea.height);
     }
 }
