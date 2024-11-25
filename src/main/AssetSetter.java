@@ -3,6 +3,7 @@ package main;
 import obj.OBJ_Chest;
 import obj.OBJ_Door;
 import obj.OBJ_Key;
+import obj.OBJ_Speed_Potion;
 
 public class AssetSetter {
 
@@ -43,6 +44,10 @@ public class AssetSetter {
         gp.obj[7] = new OBJ_Chest();
         gp.obj[7].worldX = 6 * gp.tileSize; 
         gp.obj[7].worldY = 3 * gp.tileSize;
+
+        gp.obj[8] = new OBJ_Speed_Potion();
+        gp.obj[8].worldX = 6 * gp.tileSize; 
+        gp.obj[8].worldY = 5 * gp.tileSize;
         
          
 

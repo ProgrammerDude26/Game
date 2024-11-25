@@ -128,16 +128,23 @@ public class Player extends Entity{
 
             switch(objectName) {
                 case "Key":
+                    gp.playSFX(1);
                     hasKey++;
                     gp.obj[i] = null;
                     System.out.println("Key: "+hasKey);
                         break; 
                 case "Door":
+                    gp.playSFX(3);
                     if(hasKey > 0) {
                         gp.obj[i] = null;    
                         hasKey--;
                     }
                     System.out.println("Key: "+hasKey);
+                        break;
+                case "Speed_Potion":
+                    gp.playSFX(2);
+                    speed += 2; // SPEED POTION
+                    gp.obj[i] = null;
                         break;
             }
 
