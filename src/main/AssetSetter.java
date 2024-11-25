@@ -13,42 +13,38 @@ public class AssetSetter {
     }
     public void setObject() {
 
-        gp.obj[0] = new OBJ_Key();
-        gp.obj[0].worldX = 21 * gp.tileSize;
-        gp.obj[0].worldY = 11 * gp.tileSize;
+        gp.obj[0] = new OBJ_Key(); // Key 3
+        gp.obj[0].worldX = 10 * gp.tileSize;
+        gp.obj[0].worldY = 37 * gp.tileSize;
 
-        gp.obj[1] = new OBJ_Key();
-        gp.obj[1].worldX = 20 * gp.tileSize; 
-        gp.obj[1].worldY = 10 * gp.tileSize;
+        gp.obj[1] = new OBJ_Key(); // Key 2
+        gp.obj[1].worldX = 45 * gp.tileSize; 
+        gp.obj[1].worldY = 41 * gp.tileSize;
 
-        gp.obj[2] = new OBJ_Key();
-        gp.obj[2].worldX = 24 * gp.tileSize; 
-        gp.obj[2].worldY = 5 * gp.tileSize;
+        gp.obj[2] = new OBJ_Key(); // Key 1
+        gp.obj[2].worldX = 26 * gp.tileSize; 
+        gp.obj[2].worldY = 21 * gp.tileSize;
 
-        gp.obj[3] = new OBJ_Door(); // Door 2
+        gp.obj[3] = new OBJ_Door(); // Door 3
         gp.obj[3].worldX = 6 * gp.tileSize; 
         gp.obj[3].worldY = 7 * gp.tileSize;
 
-        gp.obj[4] = new OBJ_Door();
-        gp.obj[4].worldX = 9 * gp.tileSize; 
-        gp.obj[4].worldY = 18 * gp.tileSize;
+        gp.obj[4] = new OBJ_Door(); // Door 2
+        gp.obj[4].worldX = 42 * gp.tileSize; 
+        gp.obj[4].worldY = 38 * gp.tileSize;
         
-        gp.obj[5] = new OBJ_Door();
-        gp.obj[5].worldX = 15 * gp.tileSize; 
-        gp.obj[5].worldY = 18 * gp.tileSize;
+        gp.obj[5] = new OBJ_Door(); // Door 1
+        gp.obj[5].worldX = 24 * gp.tileSize; 
+        gp.obj[5].worldY = 24 * gp.tileSize;
 
-        gp.obj[6] = new OBJ_Door(); // Door 1
-        gp.obj[6].worldX = 45 * gp.tileSize; 
-        gp.obj[6].worldY = 19 * gp.tileSize;
+        gp.obj[6] = new OBJ_Chest(); // Wins The Game
+        gp.obj[6].worldX = 6 * gp.tileSize; 
+        gp.obj[6].worldY = 3 * gp.tileSize;
 
-        gp.obj[7] = new OBJ_Chest();
-        gp.obj[7].worldX = 6 * gp.tileSize; 
-        gp.obj[7].worldY = 3 * gp.tileSize;
+        gp.obj[7] = new OBJ_Speed_Potion();
+        gp.obj[7].worldX = 44 * gp.tileSize; 
+        gp.obj[7].worldY = 16 * gp.tileSize;
 
-        gp.obj[8] = new OBJ_Speed_Potion();
-        gp.obj[8].worldX = 6 * gp.tileSize; 
-        gp.obj[8].worldY = 5 * gp.tileSize;
-        
          
 
     }
