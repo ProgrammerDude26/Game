@@ -1,7 +1,10 @@
 package tile;
 
 import main.GamePanel;
+import main.UtilityTool;
+
 import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -28,49 +31,26 @@ public class TileManager {
 
     public void getTileImage() {
 
-        try {
+        setup(0, "earthHorizontal", false);
+        setup(1, "earthVertical", false);
+        setup(2, "tree", true);
+        setup(3, "wall", true);
+        setup(4, "sand", false);
+        setup(5, "grass", false);
+        setup(6, "earthUpT", false);
+        setup(7, "earthDownT", false);
+        setup(8, "earthLeftT", false);
+        setup(9, "earthRightT", false);
+    }
 
-            tile[0] = new Tile();
-            tile[0].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/earthHorizontal.png"));
+    public void setup(int index, String imageName, boolean collision){
+        UtilityTool uTool = new UtilityTool();
 
-            tile[1] = new Tile();
-            tile[1].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/earthVertical.png"));
-
-            tile[2] = new Tile();
-            tile[2].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/tree.png"));
-            tile[2].collision = true;
-
-            tile[3] = new Tile();
-            tile[3].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/wall.png"));
-            tile[3].collision = true;
-
-            tile[4] = new Tile();
-            tile[4].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/sand.png"));
-
-            tile[5] = new Tile();
-            tile[5].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/grass.png"));
-
-            tile[6] = new Tile();
-            tile[6].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/block.png"));
-
-            tile[7] = new Tile();
-            tile[7].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/earthCross.png"));
-
-            tile[8] = new Tile();
-            tile[8].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/earthUpT.png"));
-
-            tile[9] = new Tile();
-            tile[9].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/earthDownT.png"));
-
-            tile[10] = new Tile();
-            tile[10].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/earthLeftT.png"));
-
-            tile[11] = new Tile();
-            tile[11].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/earthRightT.png"));
-
-
-            
-
+        try{
+            tile[index] = new Tile();
+            tile[index].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/"+ imageName +".png"));
+            tile[index].image = uTool.scaledImage(tile[index].image, gp.tileSize, gp.tileSize);
+            tile[index].collision = collision;
         }
         catch(IOException e) {
             e.printStackTrace();
@@ -129,7 +109,7 @@ public class TileManager {
                worldY + gp.tileSize > gp.player.worldY - gp.player.screenY &&
                worldY - gp.tileSize < gp.player.worldY + gp.player.screenY) {
 
-                    g2.drawImage(tile[tileNum].image, screenX, screenY, gp.tileSize, gp.tileSize, null);
+                    g2.drawImage(tile[tileNum].image, screenX, screenY, null);
                 }
 
             worldCol++;

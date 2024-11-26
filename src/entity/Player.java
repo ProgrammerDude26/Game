@@ -6,11 +6,13 @@ import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 
 import java.io.IOException;
+import java.nio.Buffer;
 
 import javax.imageio.ImageIO;
 
 import main.GamePanel;
 import main.KeyHandler;
+import main.UtilityTool;
 
 public class Player extends Entity{
 
@@ -49,20 +51,31 @@ public class Player extends Entity{
     }
     public void getPlayerImage() {
 
-        try {
-            up1 = ImageIO.read(getClass().getResourceAsStream("/res/player/PlayerUp1.png"));
-            up2 = ImageIO.read(getClass().getResourceAsStream("/res/player/PlayerUp2.png"));
-            down1 = ImageIO.read(getClass().getResourceAsStream("/res/player/PlayerDown1.png"));
-            down2 = ImageIO.read(getClass().getResourceAsStream("/res/player/PlayerDown2.png"));
-            left1 = ImageIO.read(getClass().getResourceAsStream("/res/player/PlayerLeft1.png"));
-            left2 = ImageIO.read(getClass().getResourceAsStream("/res/player/PlayerLeft2.png"));
-            right1 = ImageIO.read(getClass().getResourceAsStream("/res/player/PlayerRight1.png"));
-            right2 = ImageIO.read(getClass().getResourceAsStream("/res/player/PlayerRight2.png"));
+        up1 = setup("PlayerUp1");
+        up2 = setup("PlayerUp2");
+        down1 = setup("PlayerDown1");
+        down2 = setup("PlayerDown2");
+        left1 = setup("PlayerLeft1");
+        left2 = setup("PlayerLeft2");
+        right1 = setup("PlayerRight1");
+        right2 = setup("PlayerRight2");
+
+    }
+    public BufferedImage setup(String imageName) {
+        UtilityTool uTool = new UtilityTool();
+        BufferedImage image = null;
+
+        try{
+            image = ImageIO.read(getClass().getResourceAsStream("/res/player/" + imageName + ".png"));
+            image = uTool.scaledImage(image, gp.tileSize, gp.tileSize);
         }
-        catch (IOException e) {
+        catch(IOException e) {
             e.printStackTrace();
         }
+        return image;
+
     }
+
     public void update() {
 
         if(keyH.upPressed == true || keyH.downPressed == true || keyH.leftPressed == true || keyH.rightPressed == true) { 
@@ -202,7 +215,7 @@ public class Player extends Entity{
             break;
         }
 
-        g2.drawImage(image, screenX, screenY, gp.tileSize, gp.tileSize, null);
+        g2.drawImage(image, screenX, screenY, null);
 
         // PLAYER COLLISION BOX CHECKER - Uncomment to Enable
 
