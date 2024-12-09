@@ -50,11 +50,12 @@ public class TileManager {
         setup(13, "wall", true);
         setup(14, "sand", false);
         setup(15, "grass", false);
-        setup(16, "earthUpT", false);
+        setup(16, "grass2", false);
         setup(17, "earthDownT", false);
-        setup(18, "earthLeftT", false);
-        setup(19, "earthRightT", false);
-        setup(20, "earthCross", false);
+        setup(18, "earthUpT", false);
+        setup(19, "earthLeftT", false);
+        setup(20, "earthRightT", false);
+        setup(21, "earthCross", false);
     }
 
     public void setup(int index, String imageName, boolean collision){
