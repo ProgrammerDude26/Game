@@ -56,6 +56,11 @@ public class TileManager {
         setup(19, "earthLeftT", false);
         setup(20, "earthRightT", false);
         setup(21, "earthCross", false);
+        setup(22, "earthDownLeftL", false);
+        setup(23, "earthDownRightL", false);
+        setup(24, "earthUpLeftL", false);
+        setup(25, "earthUpRightL", false);
+        
     }
 
     public void setup(int index, String imageName, boolean collision){
