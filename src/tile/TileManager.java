@@ -46,7 +46,7 @@ public class TileManager {
 
         setup(10, "earthHorizontal", false);
         setup(11, "earthVertical", false);
-        setup(12, "tree", true);
+        setup(12, "water", true);
         setup(13, "wall", true);
         setup(14, "sand", false);
         setup(15, "grass", false);
@@ -60,6 +60,10 @@ public class TileManager {
         setup(23, "earthDownRightL", false);
         setup(24, "earthUpLeftL", false);
         setup(25, "earthUpRightL", false);
+        setup(26, "waterSandL", false);
+        setup(27, "waterSandR", false);
+        setup(28, "waterSandUp", false);
+        setup(29, "waterSandDown", false);
         
     }
 
