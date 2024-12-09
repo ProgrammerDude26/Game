@@ -22,7 +22,7 @@ public class TileManager {
 
         this.gp = gp;
 
-        tile = new Tile[20];
+        tile = new Tile[50];
         mapTileNum = new int[gp.maxWorldCol][gp.maxWorldRow];
 
         getTileImage();
@@ -30,17 +30,31 @@ public class TileManager {
     }
 
     public void getTileImage() {
+        
+        // Start Placeholder - starts at  10 for easier map editing & to avoid null pointer
+        setup(0, "block", false);
+        setup(1, "block", false);
+        setup(2, "block", true);
+        setup(3, "block", true);
+        setup(4, "block", false);
+        setup(5, "block", false);
+        setup(6, "block", false);
+        setup(7, "block", false);
+        setup(8, "block", false);
+        setup(9, "block", false);
+        //  End Placeholder - starts at  10 for easier map editing & to avoid null pointer
 
-        setup(0, "earthHorizontal", false);
-        setup(1, "earthVertical", false);
-        setup(2, "tree", true);
-        setup(3, "wall", true);
-        setup(4, "sand", false);
-        setup(5, "grass", false);
-        setup(6, "earthUpT", false);
-        setup(7, "earthDownT", false);
-        setup(8, "earthLeftT", false);
-        setup(9, "earthRightT", false);
+        setup(10, "earthHorizontal", false);
+        setup(11, "earthVertical", false);
+        setup(12, "tree", true);
+        setup(13, "wall", true);
+        setup(14, "sand", false);
+        setup(15, "grass", false);
+        setup(16, "earthUpT", false);
+        setup(17, "earthDownT", false);
+        setup(18, "earthLeftT", false);
+        setup(19, "earthRightT", false);
+        setup(20, "earthCross", false);
     }
 
     public void setup(int index, String imageName, boolean collision){
