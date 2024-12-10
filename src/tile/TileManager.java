@@ -22,7 +22,7 @@ public class TileManager {
 
         this.gp = gp;
 
-        tile = new Tile[50];
+        tile = new Tile[60];
         mapTileNum = new int[gp.maxWorldCol][gp.maxWorldRow];
 
         getTileImage();
@@ -34,8 +34,8 @@ public class TileManager {
         // Start Placeholder - starts at  10 for easier map editing & to avoid null pointer
         setup(0, "block", false);
         setup(1, "block", false);
-        setup(2, "block", true);
-        setup(3, "block", true);
+        setup(2, "block", false);
+        setup(3, "block", false);
         setup(4, "block", false);
         setup(5, "block", false);
         setup(6, "block", false);
@@ -68,6 +68,18 @@ public class TileManager {
         setup(31, "waterSandTopLeftL", true);
         setup(32, "waterSandBottomRightL", true);
         setup(33, "waterSandBottomLeftL", true);
+        setup(34, "waterSandBottomLeftCorner", true);
+        setup(35, "waterSandBottomRightCorner", true);
+        setup(36, "waterSandTopLeftCorner", true);
+        setup(37, "waterSandTopRightCorner", true);
+        // setup(38, "waterEarthL", true);
+        // setup(39, "waterEarthR", true);
+        // setup(40, "waterEarthUp", true);
+        // setup(41, "waterEarthDown", true);
+        // setup(42, "waterEarthTopRightL", true);
+        // setup(43, "waterEarthTopLeftL", true);
+        // setup(44, "waterEarthBottomRightL", true);
+        // setup(45, "waterEarthBottomLeftL", true);
         
     }
 
