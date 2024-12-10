@@ -60,10 +60,14 @@ public class TileManager {
         setup(23, "earthDownRightL", false);
         setup(24, "earthUpLeftL", false);
         setup(25, "earthUpRightL", false);
-        setup(26, "waterSandL", false);
-        setup(27, "waterSandR", false);
-        setup(28, "waterSandUp", false);
-        setup(29, "waterSandDown", false);
+        setup(26, "waterSandL", true);
+        setup(27, "waterSandR", true);
+        setup(28, "waterSandUp", true);
+        setup(29, "waterSandDown", true);
+        setup(30, "waterSandTopRightL", true);
+        setup(31, "waterSandTopLeftL", true);
+        setup(32, "waterSandBottomRightL", true);
+        setup(33, "waterSandBottomLeftL", true);
         
     }
 
