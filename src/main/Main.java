@@ -10,7 +10,7 @@ public class Main {
         JFrame window = new JFrame();
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setResizable(false); // non-resizeable
-        window.setTitle("My First Game"); // Title Screen 
+        window.setTitle("RPG Game - Java"); // Title Screen 
 
         GamePanel gamePanel = new GamePanel();
         window.add(gamePanel);
