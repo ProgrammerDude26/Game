@@ -1,30 +1,24 @@
 package entity;
 
-import java.awt.Color;
+//import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 
-import java.io.IOException;
-import java.nio.Buffer;
-
-import javax.imageio.ImageIO;
-
 import main.GamePanel;
 import main.KeyHandler;
-import main.UtilityTool;
 
 public class Player extends Entity{
 
-    GamePanel gp;
     KeyHandler keyH;
 
     public final int screenX;
     public final int screenY;
-    // public int hasKey = 0; // How Many Keys Player Currently Has
 
     public Player(GamePanel gp, KeyHandler keyH) {
-        this.gp = gp;
+
+        super(gp);
+
         this.keyH = keyH;
 
         screenX = gp.screenWidth / 2 - (gp.tileSize/2);
@@ -51,28 +45,14 @@ public class Player extends Entity{
     }
     public void getPlayerImage() {
 
-        up1 = setup("PlayerUp1");
-        up2 = setup("PlayerUp2");
-        down1 = setup("PlayerDown1");
-        down2 = setup("PlayerDown2");
-        left1 = setup("PlayerLeft1");
-        left2 = setup("PlayerLeft2");
-        right1 = setup("PlayerRight1");
-        right2 = setup("PlayerRight2");
-
-    }
-    public BufferedImage setup(String imageName) {
-        UtilityTool uTool = new UtilityTool();
-        BufferedImage image = null;
-
-        try{
-            image = ImageIO.read(getClass().getResourceAsStream("/res/player/" + imageName + ".png"));
-            image = uTool.scaledImage(image, gp.tileSize, gp.tileSize);
-        }
-        catch(IOException e) {
-            e.printStackTrace();
-        }
-        return image;
+        up1 = setup("/res/player/PlayerUp1");
+        up2 = setup("/res/player/PlayerUp2");
+        down1 = setup("/res/player/PlayerDown1");
+        down2 = setup("/res/player/PlayerDown2");
+        left1 = setup("/res/player/PlayerLeft1");
+        left2 = setup("/res/player/PlayerLeft2");
+        right1 = setup("/res/player/PlayerRight1");
+        right2 = setup("/res/player/PlayerRight2");
 
     }
 
