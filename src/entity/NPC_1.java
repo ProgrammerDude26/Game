@@ -12,6 +12,7 @@ public class NPC_1 extends Entity{
         direction = "down";
         speed = 1;
         getImage();
+        setDialogue();
 }
         public void getImage() {
 
@@ -24,6 +25,9 @@ public class NPC_1 extends Entity{
         right1 = setup("/res/npc/npc1Right1");
         right2 = setup("/res/npc/npc1Right2");
 
+    }
+    public void setDialogue() {
+        dialogues[0] = "Hello...";
     }
     public void setAction() {
 
@@ -49,5 +53,8 @@ public class NPC_1 extends Entity{
 
         actionLockCounter = 0;
     }
+    }
+    public void speak() {
+        gp.ui.currrentDialogue = dialogues[0];
     }
 }
