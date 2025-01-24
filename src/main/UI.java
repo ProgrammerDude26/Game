@@ -69,11 +69,16 @@ public class UI {
         drawSubWindow(x, y, width, height);
 
         Color c = new Color(255,255,255);
-        g2.setFont(g2.getFont().deriveFont(Font.PLAIN,28));
+        g2.setFont(g2.getFont().deriveFont(Font.PLAIN,20));
         g2.setColor(c);
         x += gp.tileSize;
         y += gp.tileSize;
-        g2.drawString(currrentDialogue, x, y);
+
+        //SPLITS TEXT FOR NEW LINE IN BOX
+        for(String line : currrentDialogue.split("\n")) {
+            g2.drawString(line, x, y);
+                y += 40;
+        }
     }
 
     public void drawSubWindow(int x, int y, int width, int height) {

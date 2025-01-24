@@ -28,6 +28,9 @@ public class NPC_1 extends Entity{
     }
     public void setDialogue() {
         dialogues[0] = "Hello...";
+        dialogues[1] = "Find The Orb...";
+        dialogues[2] = "The World Will Fall Without The Orb\n";
+        dialogues[3] = "Go Now!";
     }
     public void setAction() {
 
@@ -55,6 +58,6 @@ public class NPC_1 extends Entity{
     }
     }
     public void speak() {
-        gp.ui.currrentDialogue = dialogues[0];
+        super.speak();
     }
 }
