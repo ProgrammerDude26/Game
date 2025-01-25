@@ -3,8 +3,13 @@ package main;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.FontFormatException;
 import java.awt.Graphics2D;
+import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
+import java.awt.image.RenderedImage;
+import java.io.IOException;
+import java.io.InputStream;
 import java.text.DecimalFormat;
 
 import obj.OBJ_Key;
@@ -12,7 +17,7 @@ import obj.OBJ_Key;
 public class UI {
 
     GamePanel gp;
-    Font arial_23, arial_40B;
+    Font oldeEnglish, homeVideo_Regular;
     Graphics2D g2;
     public boolean messageOn = false;
     public String message = "";
@@ -23,9 +28,17 @@ public class UI {
 
     public UI(GamePanel gp) {
         this.gp = gp;
-        arial_23 = new Font("Arial", Font.PLAIN, 23);
-        arial_40B = new Font("Arial", Font.BOLD, 40);
-    }
+        try {
+            InputStream is = getClass().getResourceAsStream("/res/font/OldeEnglish.ttf");
+        oldeEnglish = Font.createFont(Font.TRUETYPE_FONT, is);
+            is = getClass().getResourceAsStream("/res/font/HomeVideo-Regular.ttf");
+            homeVideo_Regular = Font.createFont(Font.TRUETYPE_FONT, is);
+        } catch (FontFormatException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    } 
 
     public void showMessage(String text) {
         message = text;
@@ -36,7 +49,8 @@ public class UI {
 
         this.g2 = g2;
 
-        g2.setFont(arial_23);
+        g2.setFont(oldeEnglish);
+        g2.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
         g2.setColor(Color.LIGHT_GRAY);
         // PLAY STATE
         if(gp.gameState == gp.playState) {
@@ -69,7 +83,7 @@ public class UI {
         drawSubWindow(x, y, width, height);
 
         Color c = new Color(255,255,255);
-        g2.setFont(g2.getFont().deriveFont(Font.PLAIN,20));
+        g2.setFont(g2.getFont().deriveFont(Font.PLAIN,30));
         g2.setColor(c);
         x += gp.tileSize;
         y += gp.tileSize;
