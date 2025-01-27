@@ -12,13 +12,16 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.text.DecimalFormat;
 
+import obj.OBJ_Heart;
 import obj.OBJ_Key;
+import obj.SuperObject;
 
 public class UI {
 
     GamePanel gp;
     Font oldeEnglish, homeVideo_Regular;
     Graphics2D g2;
+    BufferedImage healthFull, healthHalf, healthEmpty;
     public boolean messageOn = false;
     public String message = "";
     int messageCounter = 0;
@@ -40,6 +43,12 @@ public class UI {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        // CREATE HUD OBJECT
+        SuperObject heart = new OBJ_Heart(gp);
+        healthFull = heart.image;
+        healthHalf = heart.image2;
+        healthEmpty = heart.image3;
     } 
 
     public void showMessage(String text) {
@@ -60,16 +69,49 @@ public class UI {
         }
         // PLAY STATE
         if(gp.gameState == gp.playState) {
-            // DOing Later
+            drawPlayerLife();
         }
         // PAUSE STATE
         if(gp.gameState == gp.pauseState) {
+            drawPlayerLife();
             drawPauseScreen();
         }
         // DIALOGUE STATE
         if(gp.gameState == gp.dialogueState) {
+            drawPlayerLife();
             drawDialogueScreen();
         }
+    }
+    public void drawPlayerLife() {
+
+        int x = gp.tileSize / 2;
+        int y = gp.tileSize / 2;
+        int i = 0;
+
+        // DRAWS MAX LIFE
+        while(i < gp.player.maxLife/2) { // 2 Life = 1 Heart
+            g2.drawImage(healthEmpty, x, y, null);
+            i++;
+            x += gp.tileSize;
+        }
+
+        // RESET VALUES
+        x = gp.tileSize / 2;
+        y = gp.tileSize / 2;
+        i = 0;
+
+        // DRAWS CURRENT HEALTH
+        while(i < gp.player.life) {
+            g2.drawImage(healthHalf, x, y, null);
+            i++;
+            if(i < gp.player.life) {
+                g2.drawImage(healthFull, x, y, null);
+            }
+            i++;
+            x += gp.tileSize;
+        }
+
+
     }
     public void drawTitleScreen() {
 
