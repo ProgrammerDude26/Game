@@ -1,28 +1,15 @@
 package obj;
 
-import java.io.IOException;
-
-import javax.imageio.ImageIO;
-
+import entity.Entity;
 import main.GamePanel;
 
-    //GamePanel gp;
-
-public class OBJ_Speed_Potion extends SuperObject {
+public class OBJ_Speed_Potion extends Entity {
 
         public OBJ_Speed_Potion(GamePanel gp) {
-        
-            //this.gp = gp;
+        super(gp);
 
         name = "Speed_Potion";
-        try{
-            image = ImageIO.read(getClass().getResourceAsStream("/res/objects/item2.png"));
-            uTool.scaledImage(image, gp.tileSize, gp.tileSize);
-
-        }
-        catch(IOException e) {
-            e.printStackTrace();
-        }
+        down1 = setup("/res/objects/item2");
     }
 
 }

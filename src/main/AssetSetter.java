@@ -1,10 +1,7 @@
 package main;
 
 import entity.NPC_1;
-import obj.OBJ_Chest;
 import obj.OBJ_Door;
-import obj.OBJ_Key;
-import obj.OBJ_Speed_Potion;
 
 public class AssetSetter {
 
@@ -13,6 +10,10 @@ public class AssetSetter {
         this.gp = gp;
     }
     public void setObject() {
+
+        gp.obj[0] = new OBJ_Door(gp);
+        gp.obj[0].worldX = gp.tileSize*28;
+        gp.obj[0].worldY = gp.tileSize*28;
 
     }
     public void setNPC() {

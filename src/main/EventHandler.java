@@ -44,7 +44,7 @@ public class EventHandler {
         }
         // EVENTS
         if(canTouchEvent = true) {
-        if(hit(25,22,"any") == true) {damagePit(25,22,gp.dialogueState);} // DAMAGE PIT EVENT
+        if(hit(25,22,"right") == true) {damagePit(25,22,gp.dialogueState);} // DAMAGE PIT EVENT
         if(hit(22,22,"any") == true) {healingPool(22,22,gp.dialogueState);} // HEALING PIT EVENT
         }
 
@@ -87,13 +87,7 @@ public class EventHandler {
             gp.gameState = gameState;
             gp.ui.currrentDialogue = "Life Restored";
             gp.player.life = gp.player.maxLife;
-            // eventRect[col][row].eventDone = true; // ONE TIME USE HEALING POOL
-}
-    public void oneTimeUseHealingPool(int col, int row, int gameState) {
-        gp.gameState = gameState;
-        gp.ui.currrentDialogue = "Life Restored";
-        gp.player.life = gp.player.maxLife;
-        eventRect[col][row].eventDone = true; // ONE TIME USE HEALING POOL
+            eventRect[col][row].eventDone = true; // ONE TIME USE HEALING POOL
 }
 }
 

@@ -12,9 +12,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.text.DecimalFormat;
 
+import entity.Entity;
 import obj.OBJ_Heart;
 import obj.OBJ_Key;
-import obj.SuperObject;
 
 public class UI {
 
@@ -45,7 +45,7 @@ public class UI {
         }
 
         // CREATE HUD OBJECT
-        SuperObject heart = new OBJ_Heart(gp);
+        Entity heart = new OBJ_Heart(gp);
         healthFull = heart.image;
         healthHalf = heart.image2;
         healthEmpty = heart.image3;
