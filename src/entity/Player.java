@@ -187,7 +187,7 @@ public class Player extends Entity{
 
         g2.drawImage(image, screenX, screenY, null);
 
-        // PLAYER COLLISION BOX CHECKER - Uncomment to Enable
+        //PLAYER COLLISION BOX CHECKER - Uncomment to Enable
 
         //g2.setColor(Color.red);
         //g2.drawRect(screenX + solidArea.x, screenY + solidArea.y, solidArea.width, solidArea.height);

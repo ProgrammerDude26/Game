@@ -9,12 +9,14 @@ public class OBJ_DamagePit extends Entity{
 
         name = "Damage Pit";
         down1 = setup("/res/objects/damagePit");
+        collision = true;
 
-        solidArea.x = 0;
-        solidArea.y = 10;
-        solidArea.width = 60;
-        solidArea.height = 60;
+        solidArea.x = 26;
+        solidArea.y = 36;
         solidAreaDefaultX = solidArea.x;
         solidAreaDefaultY = solidArea.y;
+        solidArea.width = 12;
+        solidArea.height = 24;
+
     }
 }

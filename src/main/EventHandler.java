@@ -19,8 +19,8 @@ public class EventHandler {
         while(col < gp.maxWorldCol && row < gp.maxWorldRow) {
 
         eventRect[col][row] = new EventRect();
-        eventRect[col][row].x = 8;
-        eventRect[col][row].y = 8;
+        eventRect[col][row].x = 16;
+        eventRect[col][row].y = 16;
         eventRect[col][row].width = 18;
         eventRect[col][row].height = 18;
         eventRect[col][row].eventRectDefaultX = eventRect[col][row].x;
@@ -82,6 +82,7 @@ public class EventHandler {
         gp.ui.currrentDialogue = "-1.5 HP";
         gp.player.life -= 3;
         eventRect[col][row].eventDone = true; // ONE TIME USE DAMAGE PIT
+        
 
 }
     public void healingPool(int col, int row, int gameState) {
