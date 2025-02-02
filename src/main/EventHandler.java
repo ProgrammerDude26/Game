@@ -1,5 +1,6 @@
 package main;
 
+
 public class EventHandler {
     GamePanel gp;
     EventRect eventRect[][];
@@ -18,10 +19,10 @@ public class EventHandler {
         while(col < gp.maxWorldCol && row < gp.maxWorldRow) {
 
         eventRect[col][row] = new EventRect();
-        eventRect[col][row].x = 23;
-        eventRect[col][row].y = 23;
-        eventRect[col][row].width = 5;
-        eventRect[col][row].height = 5;
+        eventRect[col][row].x = 15;
+        eventRect[col][row].y = 15;
+        eventRect[col][row].width = 10;
+        eventRect[col][row].height = 10;
         eventRect[col][row].eventRectDefaultX = eventRect[col][row].x;
         eventRect[col][row].eventRectDefaultY = eventRect[col][row].y;
         col++;
@@ -44,7 +45,7 @@ public class EventHandler {
         }
         // EVENTS
         if(canTouchEvent = true) {
-        if(hit(25,22,"right") == true) {damagePit(25,22,gp.dialogueState);} // DAMAGE PIT EVENT
+        if(hit(25,22,"any") == true) {damagePit(25,22,gp.dialogueState);} // DAMAGE PIT EVENT
         if(hit(22,22,"any") == true) {healingPool(22,22,gp.dialogueState);} // HEALING PIT EVENT
         }
 
@@ -78,16 +79,17 @@ public class EventHandler {
     }
     public void damagePit(int col, int row, int gameState) {
         gp.gameState = gameState;
-        gp.ui.currrentDialogue = "-0.5 HP";
-        gp.player.life -= 1;
-        canTouchEvent = false;
+        gp.ui.currrentDialogue = "-1.5 HP";
+        gp.player.life -= 3;
+        eventRect[col][row].eventDone = true; // ONE TIME USE DAMAGE PIT
 
 }
     public void healingPool(int col, int row, int gameState) {
-            gp.gameState = gameState;
-            gp.ui.currrentDialogue = "Life Restored";
-            gp.player.life = gp.player.maxLife;
-            eventRect[col][row].eventDone = true; // ONE TIME USE HEALING POOL
+        gp.gameState = gameState;
+        gp.ui.currrentDialogue = "Life Restored";
+        gp.player.life = gp.player.maxLife;
+        eventRect[col][row].eventDone = true; // ONE TIME USE HEALING POOL
+        
 }
 }
 

@@ -44,7 +44,7 @@ public class Player extends Entity{
         direction = "down";
 
         // PLAYER STATUS
-        maxLife = 6; // 6 Life is 3 Full Hearts
+        maxLife = 10; // 6 Life is 3 Full Hearts
         life = maxLife;
     }
     public void getPlayerImage() {
