@@ -5,7 +5,6 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 
@@ -16,20 +15,19 @@ import entity.Player;
 import tile.TileManager;
 
 public class GamePanel extends JPanel implements Runnable{
+
     // SCREEN SETTINGS
     final int originalTileSize = 32; // 16x16 tile 
     final int scale = 2; // scales size for bigger resolution
     public final int tileSize = originalTileSize * scale; // 48x48 tile because 16 * 3
     public final int maxScreenCol = 50;
     public final int maxScreenRow = 50;
-    public final int screenWidth = 768; //tileSize * maxScreenCol; // 768 pixels width
-    public final int screenHeight = 576; //tileSize * maxScreenRow; // 576 pixels height
+    public final int screenWidth = 768;
+    public final int screenHeight = 576;
 
     //WORLD SETTINGS
     public final int maxWorldCol = 50;
     public final int maxWorldRow = 50;
-    //public final int worldWidth = tileSize * maxWorldCol; // UNUSED?
-    //public final int worldHeight = tileSize * maxWorldRow; // UNUSED?
 
     // FPS
     int FPS = 60;
@@ -100,7 +98,6 @@ public class GamePanel extends JPanel implements Runnable{
                 drawCount++;
             }
             if(timer >= 1000000000) {
-                // System.out.println("FPS: " + drawCount); // FPS Counter
                 drawCount = 0;
                 timer = 0;
             }

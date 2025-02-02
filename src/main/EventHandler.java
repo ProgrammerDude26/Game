@@ -19,10 +19,10 @@ public class EventHandler {
         while(col < gp.maxWorldCol && row < gp.maxWorldRow) {
 
         eventRect[col][row] = new EventRect();
-        eventRect[col][row].x = 15;
-        eventRect[col][row].y = 15;
-        eventRect[col][row].width = 10;
-        eventRect[col][row].height = 10;
+        eventRect[col][row].x = 8;
+        eventRect[col][row].y = 8;
+        eventRect[col][row].width = 18;
+        eventRect[col][row].height = 18;
         eventRect[col][row].eventRectDefaultX = eventRect[col][row].x;
         eventRect[col][row].eventRectDefaultY = eventRect[col][row].y;
         col++;
@@ -92,4 +92,3 @@ public class EventHandler {
         
 }
 }
-

@@ -7,14 +7,11 @@ import java.awt.FontFormatException;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
-import java.awt.image.RenderedImage;
 import java.io.IOException;
 import java.io.InputStream;
-import java.text.DecimalFormat;
 
 import entity.Entity;
 import obj.OBJ_Heart;
-import obj.OBJ_Key;
 
 public class UI {
 
