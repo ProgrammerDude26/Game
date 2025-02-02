@@ -1,17 +1,14 @@
 package entity;
-
 //import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
-
 import main.GamePanel;
 import main.KeyHandler;
 
 public class Player extends Entity{
 
     KeyHandler keyH;
-
     public final int screenX;
     public final int screenY;
 
@@ -59,11 +56,9 @@ public class Player extends Entity{
         right2 = setup("/res/player/PlayerRight2");
 
     }
-
     public void update() {
 
         if(keyH.upPressed == true || keyH.downPressed == true || keyH.leftPressed == true || keyH.rightPressed == true) { 
-
         // UPDATE LOOP
         if(keyH.upPressed == true) {
             direction = "up";
@@ -188,7 +183,6 @@ public class Player extends Entity{
         g2.drawImage(image, screenX, screenY, null);
 
         //PLAYER COLLISION BOX CHECKER - Uncomment to Enable
-
         //g2.setColor(Color.red);
         //g2.drawRect(screenX + solidArea.x, screenY + solidArea.y, solidArea.width, solidArea.height);
     }

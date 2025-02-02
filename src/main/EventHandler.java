@@ -1,13 +1,11 @@
 package main;
 
-
 public class EventHandler {
     GamePanel gp;
     EventRect eventRect[][];
 
     int previousEventX, previousEventY;
     boolean canTouchEvent = true;
-
 
     public EventHandler(GamePanel gp) {
 
@@ -33,7 +31,6 @@ public class EventHandler {
             }
         }
     }
-
     public void checkEvent() {
 
         // CHECK IF PLAYER IS MORE THAN 1 TILE AWAY FROM LAST EVENT
@@ -50,7 +47,6 @@ public class EventHandler {
         }
 
     }
-
     public boolean hit(int col, int row, String reqDireciton) {
 
         boolean hit = false;
@@ -68,7 +64,6 @@ public class EventHandler {
                 previousEventY = gp.player.worldY;
             }
         }
-
         gp.player.solidArea.x = gp.player.solidAreaDefaultX;
         gp.player.solidArea.y = gp.player.solidAreaDefaultY;
         eventRect[col][row].x = eventRect[col][row].eventRectDefaultX;
@@ -84,12 +79,12 @@ public class EventHandler {
         eventRect[col][row].eventDone = true; // ONE TIME USE DAMAGE PIT
         
 
-}
+    }
     public void healingPool(int col, int row, int gameState) {
         gp.gameState = gameState;
         gp.ui.currrentDialogue = "Life Restored";
         gp.player.life = gp.player.maxLife;
         eventRect[col][row].eventDone = true; // ONE TIME USE HEALING POOL
         
-}
+    }
 }
