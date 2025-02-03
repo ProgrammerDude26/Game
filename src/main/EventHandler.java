@@ -73,6 +73,7 @@ public class EventHandler {
 
     }
     public void damagePit(int col, int row, int gameState) {
+        
         gp.gameState = gameState;
         gp.ui.currrentDialogue = "-1.5 HP";
         gp.player.life -= 3;

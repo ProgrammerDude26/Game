@@ -25,11 +25,14 @@ public class Entity {
     public int solidAreaDefaultX, solidAreaDefaultY;
     public boolean collisionOn = false;
     public int actionLockCounter = 0;
+    public boolean invincible = false;
+    public int invincibleCounter = 0;
     String dialogues[] = new String[20];
     int dialogueIndex = 0;
     public BufferedImage image, image2, image3;
     public String name;
     public boolean collision = false;
+    public int type; // 0 = Player, 1 = NPC, 2 = Monster
 
     // CHARACTER STATUS
     public int maxLife;
@@ -49,36 +52,41 @@ public class Entity {
 
         // MAKES NPC LOOK AT YOU WHEN DIALOGUE ENGAGES
         switch(gp.player.direction) {
-            case "up":
-            direction = "down";
-            break;
-            case "down":
-            direction = "up";
-            break;
-            case "left":
-            direction = "right";
-            break;
-            case "right":
-            direction = "left";
-            break;
+            case "up": direction = "down";
+                break;
+            case "down": direction = "up";
+                break;
+            case "left": direction = "right";
+                break;
+            case "right": direction = "left";
+                break;
         }
     }
     public void update() {
+
         setAction();
+
         collisionOn = false;
         gp.cChecker.checkTile(this);
         gp.cChecker.checkObject(this, false);
-        gp.cChecker.checkPlayer(this);
+        gp.cChecker.checkEntity(this, gp.npc);
+        gp.cChecker.checkEntity(this, gp.monster);
+        boolean contactPlayer = gp.cChecker.checkPlayer(this);
+
+        if(this.type == 2 && contactPlayer == true) {
+            if(gp.player.invincible == false) {
+                gp.player.life -= 1;
+                gp.player.invincible = true;
+            }
+        }
 
                 // IF COLLISION IS FALSE, ENTITY CAN MOVE
                 if(collisionOn == false) {
 
                     switch(direction) {
-                        case "up":
-                            worldY -= speed;
+                        case "up": worldY -= speed;
                             break;
-                        case "down":
-                            worldY += speed;
+                        case "down": worldY += speed;
                             break;
                         case "left":
                             worldX -= speed;
