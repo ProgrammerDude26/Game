@@ -9,7 +9,7 @@ public class OBJ_Speed_Potion extends Entity {
         super(gp);
 
         name = "Speed_Potion";
-        down1 = setup("/res/objects/item2");
+        down1 = setup("/res/objects/item2", gp.tileSize, gp.tileSize);
     }
 
 }

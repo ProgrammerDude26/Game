@@ -9,7 +9,7 @@ public class OBJ_HealingPool extends Entity{
         super(gp);
 
         name = "Healing Pool";
-        down1 = setup("/res/objects/healingPool");
+        down1 = setup("/res/objects/healingPool", gp.tileSize, gp.tileSize);
 
     }
 }

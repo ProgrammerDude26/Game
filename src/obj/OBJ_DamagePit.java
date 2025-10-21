@@ -8,7 +8,7 @@ public class OBJ_DamagePit extends Entity{
         super(gp);
 
         name = "Damage Pit";
-        down1 = setup("/res/objects/damagePit");
+        down1 = setup("/res/objects/damagePit", gp.tileSize, gp.tileSize);
         collision = true;
 
         solidArea.x = 26;

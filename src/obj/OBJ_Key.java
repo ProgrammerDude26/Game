@@ -7,7 +7,7 @@ public class OBJ_Key extends Entity {
         super(gp);
 
         name = "Key";
-        down1 = setup("/res/objects/item1");
+        down1 = setup("/res/objects/item1", gp.tileSize, gp.tileSize);
 
     }
 }

@@ -5,10 +5,17 @@ import java.util.Random;
 import entity.Entity;
 import main.GamePanel;
 
+
+
 public class MON_Monster_1 extends Entity {
+    
+    GamePanel gp;
 
     public MON_Monster_1(GamePanel gp) {
+
         super(gp);
+        this.gp = gp;
+
         name = "Monster 1";
         type = 2;
         speed = 1;
@@ -25,14 +32,14 @@ public class MON_Monster_1 extends Entity {
         
     }
     public void getImage() {
-        up1 = setup("/res/monster/monster1_1");
-        up2 = setup("/res/monster/monster1_2");
-        down1 = setup("/res/monster/monster1_1");
-        down2 = setup("/res/monster/monster1_2");
-        left1 = setup("/res/monster/monster1_1");
-        left2 = setup("/res/monster/monster1_2");
-        right1 = setup("/res/monster/monster1_1");
-        right2 = setup("/res/monster/monster1_2");
+        up1 = setup("/res/monster/monster1_1", gp.tileSize, gp.tileSize);
+        up2 = setup("/res/monster/monster1_2", gp.tileSize, gp.tileSize);
+        down1 = setup("/res/monster/monster1_1", gp.tileSize, gp.tileSize);
+        down2 = setup("/res/monster/monster1_2", gp.tileSize, gp.tileSize);
+        left1 = setup("/res/monster/monster1_1", gp.tileSize, gp.tileSize);
+        left2 = setup("/res/monster/monster1_2", gp.tileSize, gp.tileSize);
+        right1 = setup("/res/monster/monster1_1", gp.tileSize, gp.tileSize);
+        right2 = setup("/res/monster/monster1_2", gp.tileSize, gp.tileSize);
     }
     public void setAction() {
 

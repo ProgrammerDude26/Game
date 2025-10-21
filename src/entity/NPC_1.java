@@ -16,14 +16,14 @@ public class NPC_1 extends Entity{
 }
         public void getImage() {
 
-        up1 = setup("/res/npc/npc1Up1");
-        up2 = setup("/res/npc/npc1Up2");
-        down1 = setup("/res/npc/npc1Down1");
-        down2 = setup("/res/npc/npc1Down2");
-        left1 = setup("/res/npc/npc1Left1");
-        left2 = setup("/res/npc/npc1Left2");
-        right1 = setup("/res/npc/npc1Right1");
-        right2 = setup("/res/npc/npc1Right2");
+        up1 = setup("/res/npc/npc1Up1", gp.tileSize, gp.tileSize);
+        up2 = setup("/res/npc/npc1Up2", gp.tileSize, gp.tileSize);
+        down1 = setup("/res/npc/npc1Down1", gp.tileSize, gp.tileSize);
+        down2 = setup("/res/npc/npc1Down2", gp.tileSize, gp.tileSize);
+        left1 = setup("/res/npc/npc1Left1", gp.tileSize, gp.tileSize);
+        left2 = setup("/res/npc/npc1Left2", gp.tileSize, gp.tileSize);
+        right1 = setup("/res/npc/npc1Right1", gp.tileSize, gp.tileSize);
+        right2 = setup("/res/npc/npc1Right2", gp.tileSize, gp.tileSize);
 
     }
     public void setDialogue() {
