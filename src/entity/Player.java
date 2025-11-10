@@ -64,16 +64,23 @@ public class Player extends Entity{
         attackDown1 = setup("/res/player/PlayerAttackDown1", gp.tileSize, gp.tileSize * 2);
         attackDown2 = setup("/res/player/PlayerAttackDown2", gp.tileSize, gp.tileSize * 2);
         attackLeft1 = setup("/res/player/PlayerAttackLeft1", gp.tileSize * 2, gp.tileSize);
-        attackLeft1 = setup("/res/player/PlayerAttackLeft2", gp.tileSize * 2, gp.tileSize);
+        attackLeft2 = setup("/res/player/PlayerAttackLeft2", gp.tileSize * 2, gp.tileSize);
         attackRight1 = setup("/res/player/PlayerAttackRight1", gp.tileSize * 2, gp.tileSize);
         attackRight2 = setup("/res/player/PlayerAttackRight2", gp.tileSize * 2, gp.tileSize);
     }
 
     public void update() {
+        // If the player is attacking but the attack key was released,
+        // cancel the attack so it doesn't continue indefinitely.
+        if(attacking == true && gp.keyH.spacePressed == false) {
+            attacking = false;
+            spriteCounter = 0;
+        }
 
         if(attacking == true){
             attacking();
         }
+        
         else if(keyH.upPressed == true || 
            keyH.downPressed == true || 
            keyH.leftPressed == true || 
@@ -176,24 +183,26 @@ public class Player extends Entity{
     }
 
     public void pickUpObject(int i) {
-
         if(i != 999) {
 
         }
-
     }
 
     public void interactNPC(int i) {
-        if(gp.keyH.enterPressed == true) {
-            if(i != 999) {
-                gp.gameState = gp.dialogueState;
-                gp.npc[i].speak();
+
+        if(i != 999) {
+            if(gp.keyH.enterPressed == true){
+            gp.gameState = gp.dialogueState;
+            gp.npc[i].speak();
             }
-            else {
-                attacking = true;
+        }
+        else {
+            if(gp.keyH.spacePressed == true){
+            attacking = true;
             }
         }
     }
+    
     
     public void contactMonster(int i) {
 
@@ -208,6 +217,8 @@ public class Player extends Entity{
     public void draw(Graphics2D g2) {
 
         BufferedImage image = null;
+        int drawX = screenX;
+        int drawY = screenY;
 
         switch(direction) {
         case "up":
@@ -218,6 +229,7 @@ public class Player extends Entity{
             if(attacking == true){
                 if(spriteNum == 1) {image = attackUp1;}
                 if(spriteNum == 2) {image = attackUp2;}
+                drawY = screenY - gp.tileSize; // Offset up for larger sprite
             }
             break;
         case "down":
@@ -238,6 +250,7 @@ public class Player extends Entity{
             if(attacking == true){
                 if(spriteNum == 1) {image = attackLeft1;}
                 if(spriteNum == 2) {image = attackLeft2;}
+                drawX = screenX - gp.tileSize; // Offset left for wider sprite
             }
             break;
         case "right":
@@ -256,7 +269,7 @@ public class Player extends Entity{
             g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.3f));
         }
 
-        g2.drawImage(image, screenX, screenY, null);
+        g2.drawImage(image, drawX, drawY, null);
 
         //RESET ALPHA
         g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1f));
