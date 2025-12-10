@@ -30,6 +30,9 @@ public class Player extends Entity{
         solidArea.width = 12;
         solidArea.height = 24;
 
+        attackArea.width = 36;
+        attackArea.height = 36;
+
         setDefaultValues();
         getPlayerImage();
         getPlayerAtkImage();
@@ -173,6 +176,38 @@ public class Player extends Entity{
         }
         if(spriteCounter > 5 && spriteCounter <= 25){
             spriteNum = 2;
+            
+            // Save Current World x, y, solidArea
+            int currentWorldX = worldX;
+            int currentWorldY = worldY;
+            int solidAreaWidth = solidArea.width;
+            int solidAreaHeight = solidArea.height;
+
+            // Adjust World x,y, for attack area
+            switch(direction){
+                case "up": worldY -= attackArea.height;
+                    break;
+                case "down": worldY += attackArea.height;
+                    break;
+                case "left": worldX -= attackArea.width;
+                    break;
+                case "right": worldX += attackArea.width;
+                    break;
+            }
+
+            // attackArea becomes solidArea
+            solidArea.width = attackArea.width;
+            solidArea.height = attackArea.height;
+
+            // Check Monster collision with the updated world x,y.solidArea
+            int monsterIndex = gp.cChecker.checkEntity(this, gp.monster);
+            damageMonster(monsterIndex);
+
+            worldX = currentWorldX;
+            worldY = currentWorldY;
+            solidArea.width = solidAreaWidth;
+            solidArea.height = solidAreaHeight;
+
         }
         if(spriteCounter > 25){
             spriteNum = 1;
@@ -214,6 +249,20 @@ public class Player extends Entity{
         }
     }
 
+    public void damageMonster(int i){
+        if(i != 999){
+            if(gp.monster[i].invincible == false){
+
+                gp.monster[i].life -= 1;
+                gp.monster[i].invincible = true;
+
+                if(gp.monster[i].life <= 0){
+                    gp.monster[i] = null;
+                }
+            }
+        }
+    }
+
     public void draw(Graphics2D g2) {
 
         BufferedImage image = null;
@@ -227,9 +276,9 @@ public class Player extends Entity{
                 if(spriteNum == 2) {image = up2;}
             }
             if(attacking == true){
-                if(spriteNum == 1) {image = attackUp1;}
-                if(spriteNum == 2) {image = attackUp2;}
                 drawY = screenY - gp.tileSize; // Offset up for larger sprite
+                if(spriteNum == 1) {image = attackUp1;}
+                if(spriteNum == 2) {image = attackUp2;}   
             }
             break;
         case "down":
@@ -248,9 +297,9 @@ public class Player extends Entity{
                 if(spriteNum == 2) {image = left2;}
             }
             if(attacking == true){
+                drawX = screenX - gp.tileSize; // Offset left for wider sprite
                 if(spriteNum == 1) {image = attackLeft1;}
                 if(spriteNum == 2) {image = attackLeft2;}
-                drawX = screenX - gp.tileSize; // Offset left for wider sprite
             }
             break;
         case "right":
